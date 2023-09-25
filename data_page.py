@@ -60,6 +60,28 @@ def data_page_content():
 
 		return pointer(keys[1:],start[keys[0]])
 
+	def delete_confirm(event):
+		for file in Elements:
+			if event.sender in Elements[file].values():
+				break
+		else:
+			return
+
+		dialog.open()
+
+		Elements["DeleteFile"] = file		
+
+	def delete_file(event):
+		file = Elements["DeleteFile"]
+
+		os.remove(os.path.join("data",file))
+
+		Search.tables[file].set_visibility(False)
+		
+		dialog.close()
+
+		ui.notify("{} Deleted".format(file))
+
 	def update_expansion(event):
 		for file in Elements:
 			if event.sender in Elements[file].values():
@@ -125,6 +147,13 @@ def data_page_content():
 
 	Search.element = ui.input('Search',on_change=update_search)
 
+	with ui.dialog() as dialog, ui.card():
+		ui.label('Are you sure?')
+		
+		with ui.row():
+			ui.button("Cancel",icon='cancel',color='gray',on_click=dialog.close)
+			ui.button("Delete",icon='delete',color='red',on_click=delete_file)
+
 	for file in data:
 		Elements[file] = {}
 
@@ -136,7 +165,7 @@ def data_page_content():
 
 					Elements[file]["Edit"] = ui.button('Edit',icon='edit',on_click=update_expansion)
 					Elements[file]["Save"] = ui.button('Save',icon='save',on_click=update_expansion)
-					Elements[file]["Delete"] = ui.button('Delete',icon='delete',color='red')
+					Elements[file]["Delete"] = ui.button('Delete',icon='delete',color='red',on_click=delete_confirm)
 
 					Elements[file]["Save"].set_visibility(False)
 

@@ -1,4 +1,4 @@
-from nicegui import ui
+from nicegui import ui, app
 
 import os
 import json
@@ -6,7 +6,7 @@ import zipfile
 
 import shortcuts
 
-image_folder = __file__.replace("photos_page.py","imgs")
+app.add_static_files('/imgs', 'imgs')
 
 def get_files():
 	return os.listdir("imgs")
@@ -34,7 +34,7 @@ def photos_page_content():
 
 		with zipfile.ZipFile(name, 'w', zipfile.ZIP_DEFLATED) as zip_ref:
 			for file in files:
-				zip_ref.write(os.path.join(image_folder,file))
+				zip_ref.write(os.path.join("imgs",file))
 
 		zip_ref.close()
 
@@ -53,5 +53,4 @@ def photos_page_content():
 			Search.tables[file] = expansion
 
 			with ui.card():
-				with ui.grid(columns=2):
-					ui.image(os.path.join(image_folder,file))
+				ui.image('/imgs/{}'.format(file)).classes("w-1/2")
