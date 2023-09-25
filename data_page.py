@@ -146,12 +146,12 @@ def data_page_content():
 
 	ui.button('Download', color='orange', icon='file_download',on_click=download_files).classes('self-end')
 
-	Search.element = ui.input('Search', on_change=update_search).props('input-style="color: white"').style(f'background-color: orange')
+	Search.element = ui.input('Search', on_change=update_search).props('input-style="color: white"')
 
 	ui.label("No Data Available").classes('text-slate-400 text-lg').set_visibility(len(data) == 0)
 
-	with ui.dialog() as dialog, ui.card():
-		ui.label('Are you sure?')
+	with ui.dialog() as dialog, ui.card().style(f'background-color: #424242'):
+		ui.label('Are you sure?').classes('font-semibold text-white')
 		
 		with ui.row():
 			ui.button("Cancel",icon='cancel',color='gray',on_click=dialog.close)

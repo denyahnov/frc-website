@@ -13,10 +13,36 @@ def get_files():
 
 @ui.page('/photos')
 def photos_page_content():
+	ui.query('body').style(f'background-color: #424242')
+
 	class Search:
 		element = None
 		tables = {}
 		text = ""
+
+	Elements = {}
+
+	def delete_confirm(event):
+		for file in Elements:
+			if event.sender == Elements[file]:
+				break
+		else:
+			return
+
+		dialog.open()
+
+		Elements["DeleteFile"] = file		
+
+	def delete_file(event):
+		file = Elements["DeleteFile"]
+
+		os.remove(os.path.join("imgs",file))
+
+		Search.tables[file].set_visibility(False)
+		
+		dialog.close()
+
+		ui.notify("{} Deleted".format(file))
 
 	def update_search(event):
 		for title,expansion in Search.tables.items():
@@ -50,9 +76,18 @@ def photos_page_content():
 
 	ui.label("No Photos Available").classes('text-slate-400 text-lg').set_visibility(len(data) == 0)
 
+	with ui.dialog() as dialog, ui.card().style(f'background-color: #424242'):
+		ui.label('Are you sure?').classes('font-semibold text-white')
+		
+		with ui.row():
+			ui.button("Cancel",icon='cancel',color='gray',on_click=dialog.close)
+			ui.button("Delete",icon='delete',color='red',on_click=delete_file)
+
 	for file in data:
 		with ui.expansion(file, icon='description').classes('w-full') as expansion:
 			Search.tables[file] = expansion
 
-			with ui.card():
+			Elements[file] = ui.button('Delete',icon='delete',color='red',on_click=delete_confirm)
+
+			with ui.card().style(f'background-color: #424242'):
 				ui.image('/imgs/{}'.format(file)).classes("w-full max-w-sm")
