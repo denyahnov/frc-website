@@ -1,0 +1,2 @@
+cone = "https://media.discordapp.net/attachments/1061962163431940120/1155122453421502515/gamepiece_2023_cone.png"
+cube = "https://media.discordapp.net/attachments/1061962163431940120/1155122453748662272/gamepiece_2023_cube.png"
