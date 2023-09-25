@@ -7,6 +7,7 @@ def content():
 	tailwind = 'w-full max-w-sm'
 
 	ui.button("Scouting App", icon="devices", on_click=lambda: ui.open("/scouter")).classes(tailwind)
+	ui.button("Pit Scouter", icon="search", on_click=lambda: ui.open("/pitscouter")).classes(tailwind)
 	ui.button("Leaderboard", icon="trending_up", on_click=lambda: ui.open("/leaderboard")).classes(tailwind)
 	ui.button("Livestream", icon="live_tv", on_click=lambda: ui.open("/livestream")).classes(tailwind)
 	ui.button("Team Statistics", icon="assessment", on_click=lambda: ui.open("/stats")).classes(tailwind)

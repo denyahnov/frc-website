@@ -1,0 +1,37 @@
+{
+    "Match": "Practice",
+    "Round": 5,
+    "Station": "Blue 3",
+    "Team": 7433,
+    "Score": {
+        "Autonomous": {
+            "Has Autonomous": 0,
+            "Left Community": 0,
+            "Crossed Autonomous Line": 0,
+            "Charge Station": "Charged",
+            "High Cones": 0,
+            "Mid Cones": 0,
+            "Low Cones": 0,
+            "High Cubes": 3,
+            "Mid Cubes": 0,
+            "Low Cubes": 0
+        },
+        "Teleoperated": {
+            "Subsystem Failure": 0,
+            "Complete Robot Failure": 0,
+            "Charge Station": "Did not Attempt",
+            "High Cones": 0,
+            "Mid Cones": 0,
+            "Low Cones": 0,
+            "High Cubes": 0,
+            "Mid Cubes": 0,
+            "Low Cubes": 0
+        }
+    },
+    "Comments": {
+        "Driving": 0,
+        "Defence": 0,
+        "Durability": 0,
+        "Notes": ""
+    }
+}
