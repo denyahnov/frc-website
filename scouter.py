@@ -6,6 +6,9 @@ from nicegui.events import ValueChangeEventArguments
 
 from tba import *
 
+all_teams = TBA.get_teams()
+all_rounds = TBA.get_schedule()
+
 driver_stations = ['Blue 1', 'Blue 2', 'Blue 3', 'Red 1', 'Red 2', 'Red 3']
 
 def Header(text):
@@ -143,7 +146,7 @@ def scouter_content():
 		Elements.driver_station = ui.select(driver_stations, value=driver_stations[0], on_change=update_team)
 
 	with ui.row():
-		Elements.team_number = ui.input('Team Number')
+		Elements.team_number = ui.select(label='Team Number', options=all_teams, with_input=True)
 
 	### AUTONOMOUS ###
 	Header("Autonomous")
