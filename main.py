@@ -7,11 +7,13 @@ import scouter
 import data_page
 import stats
 import picklist
+import img
+
 
 @ui.page('/')
 def mainpage():
-	ui.label("ICRobotics - Competition Homepage").classes('text-h4 font-bold text-grey-8')
-
+	ui.image(img.IC).classes("h-20 w-20"), ui.label("ICRobotics - Competition Homepage").classes('text-h4 font-bold text-white')
+	ui.query('body').style(f'background-color: #424242')
 	shortcuts.content()
 
 ui.run(title="Team 5584",favicon='🤖')

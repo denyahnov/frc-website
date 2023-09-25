@@ -1,13 +1,10 @@
-import os
 import img
 import shortcuts
-
+import os
 from nicegui import ui
 from nicegui.events import ValueChangeEventArguments
 
 from tba import *
-
-all_rounds = TBA.get_schedule()
 
 driver_stations = ['Blue 1', 'Blue 2', 'Blue 3', 'Red 1', 'Red 2', 'Red 3']
 

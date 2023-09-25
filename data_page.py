@@ -38,6 +38,7 @@ def update_data():
 
 @ui.page('/data')
 def data_page_content():
+	ui.query('body').style(f'background-color: #424242')
 	class Search:
 		element = None
 		tables = {}
@@ -69,17 +70,17 @@ def data_page_content():
 
 	shortcuts.return_home()
 
-	ui.button('Download',icon='file_download',on_click=download_files).classes('self-end')
+	ui.button('Download', color='orange', icon='file_download',on_click=download_files).classes('self-end')
 
-	Search.element = ui.input('Search',on_change=update_search)
+	Search.element = ui.input('Search', on_change=update_search).props('input-style="color: white"').style(f'background-color: orange')
 
 	for file in data:
-		with ui.expansion(file, icon='description').classes('w-full') as expansion:
+		with ui.expansion(file, icon='description').classes('w-full text-white').style(f'background-color: #424242') as expansion:
 			Search.tables[file] = expansion
 
-			with ui.card():
-				with ui.grid(columns=2):
+			with ui.card().style(f'background-color: #424242'):
+				with ui.grid(columns=2).style(f'background-color: #424242'):
 					for key,value in unpacker(data[file]):
-						ui.label(key).classes('font-semibold')
-						ui.label(value)
+						ui.label(key).classes('font-semibold text-white').style(f'background-color: #424242')
+						ui.label(value).style(f'background-color: #424242')
 
