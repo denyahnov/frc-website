@@ -7,6 +7,7 @@ import scouter
 import data_page
 import stats
 import picklist
+import pit_scouter
 
 @ui.page('/')
 def mainpage():
