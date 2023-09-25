@@ -55,4 +55,4 @@ def photos_page_content():
 			Search.tables[file] = expansion
 
 			with ui.card():
-				ui.image('/imgs/{}'.format(file)).classes("w-1/2")
+				ui.image('/imgs/{}'.format(file)).classes("w-full max-w-sm")
