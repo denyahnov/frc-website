@@ -1,10 +1,10 @@
 from nicegui import ui
-
 import shortcuts
 from tba import *
 
 @ui.page('/leaderboard')
 def leaderboard_content():
+	ui.query('body').style(f'background-color: #424242')
 	shortcuts.return_home()
 
 	leaderboard = TBA.get_rankings()
@@ -18,4 +18,4 @@ def leaderboard_content():
 
 	rows = [{"rank": team.rank, "team": team.team_key.strip('frc')} | {f"sort{i}": team.sort_orders[i] for i in range(len(team.sort_orders))} for team in leaderboard.rankings]
 
-	ui.table(columns=columns, rows=rows, row_key='rank')
+	ui.table(columns=columns, rows=rows, row_key='rank').classes('text-white no-shadow border-[3px]').style(f'background-color: #424242')

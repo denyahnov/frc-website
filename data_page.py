@@ -45,6 +45,7 @@ def update_data():
 
 @ui.page('/data')
 def data_page_content():
+	ui.query('body').style(f'background-color: #424242')
 	class Search:
 		element = None
 		tables = {}
@@ -143,9 +144,9 @@ def data_page_content():
 
 	shortcuts.return_home()
 
-	ui.button('Download',icon='file_download',on_click=download_files).classes('self-end')
+	ui.button('Download', color='orange', icon='file_download',on_click=download_files).classes('self-end')
 
-	Search.element = ui.input('Search',on_change=update_search)
+	Search.element = ui.input('Search', on_change=update_search).props('input-style="color: white"').style(f'background-color: orange')
 
 	ui.label("No Data Available").classes('text-slate-400 text-lg').set_visibility(len(data) == 0)
 
@@ -159,11 +160,11 @@ def data_page_content():
 	for file in data:
 		Elements[file] = {}
 
-		with ui.expansion(file, icon='description').classes('w-full') as expansion:
+		with ui.expansion(file, icon='description').classes('w-full text-white').style(f'background-color: #424242') as expansion:
 			Search.tables[file] = expansion
 
-			with ui.card():
-				with ui.grid(columns=2):
+			with ui.card().style(f'background-color: #424242'):
+				with ui.grid(columns=2).style(f'background-color: #424242'):
 
 					Elements[file]["Edit"] = ui.button('Edit',icon='edit',on_click=update_expansion)
 					Elements[file]["Save"] = ui.button('Save',icon='save',on_click=update_expansion)
@@ -176,8 +177,8 @@ def data_page_content():
 					Elements[file]["Input"] = {}
 
 					for key,value in unpacker(data[file]):
-						Elements[file]["Key"][key] = ui.label(key).classes('font-semibold')
-						Elements[file]["Value"][key] = ui.label(value)
-						Elements[file]["Input"][key] = ui.input("",value=value)
+						Elements[file]["Key"][key] = ui.label(key).classes('font-semibold text-white').style(f'background-color: #424242')
+						Elements[file]["Value"][key] = ui.label(value).style(f'background-color: #424242')
+						Elements[file]["Input"][key] = ui.input("",value=value).style(f'background-color: #424242')
 
 						Elements[file]["Input"][key].set_visibility(False)

@@ -1,5 +1,4 @@
 from nicegui import ui
-
 import shortcuts
 
 stream_link = "https://www.youtube.com/embed/TW3HyKVL5SU?si=IcfuPAhNC6krNRGZ"
@@ -8,5 +7,6 @@ stream_embed = f'<iframe width="1020" height="630" src="{stream_link}" title="Yo
 
 @ui.page('/livestream')
 def livestream_content():
+	ui.query('body').style(f'background-color: #424242')
 	shortcuts.return_home()
 	ui.html(stream_embed)

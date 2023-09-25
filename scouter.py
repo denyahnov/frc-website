@@ -1,7 +1,6 @@
-import os
 import img
 import shortcuts
-
+import os
 from nicegui import ui
 from nicegui.events import ValueChangeEventArguments
 
