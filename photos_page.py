@@ -70,7 +70,7 @@ def photos_page_content():
 
 	shortcuts.return_home()
 
-	ui.button('Download',icon='file_download',on_click=download_files).classes('self-end')
+	ui.button('Download',icon='file_download',on_click=download_files, color='orange').classes('self-end')
 
 	Search.element = ui.input('Search',on_change=update_search)
 

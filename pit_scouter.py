@@ -16,6 +16,7 @@ drivebases = ["Swerve", "Mecanum", "Tank", "Other"]
 
 @ui.page('/pitscouter')
 def pitscouter_content():
+	ui.query('body').style(f'background-color: #424242')
 
 	class Elements:
 		game_pieces = {}
@@ -88,14 +89,14 @@ def pitscouter_content():
 
 	### DRIVEBASE ###
 
-	with ui.card():
+	with ui.card().style("background-color: #595959"):
 		ui.label("Drivebase Type:").classes('font-bold')
 		Elements.drivebase = ui.radio(drivebases, value=drivebases[-1]).props('inline')
 
 	### PICKUP/INTAKE LOCATIONS ###
 
 	with ui.row():
-		with ui.card():
+		with ui.card().style("background-color: #595959"):
 			ui.label("Cone Pickup:").classes('font-bold')
 
 			Elements.cone_pickup = [
@@ -105,7 +106,7 @@ def pitscouter_content():
 				ui.switch("Double Substation")
 			]
 
-		with ui.card():
+		with ui.card().style("background-color: #595959"):
 			ui.label("Cube Pickup:").classes('font-bold')
 
 			Elements.cube_pickup = [
@@ -116,7 +117,7 @@ def pitscouter_content():
 
 	### SCORING LOCATIONS ###
 
-	with ui.card():
+	with ui.card().style("background-color: #595959"):
 		ui.label("Scoring Locations:").classes('font-bold')
 
 		with ui.grid(columns=2):
@@ -137,7 +138,7 @@ def pitscouter_content():
 
 	### COMMENTS ###
 
-	with ui.card():
+	with ui.card().style("background-color: #595959"):
 		Elements.comments = ui.textarea(label='Notes', placeholder='Type here...',)
 
 	### PHOTOS ###
