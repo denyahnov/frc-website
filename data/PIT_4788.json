@@ -1,0 +1,31 @@
+{
+    "Team": "4788",
+    "Drivebase": "Other",
+    "Pickup": {
+        "Cone": {
+            "Upright Ground": "1",
+            "Knocked Ground": 0,
+            "Single Substation": 0,
+            "Double Substation": 0
+        },
+        "Cube": {
+            "Ground": 0,
+            "Single Substation": 0,
+            "Double Substation": 0
+        }
+    },
+    "Score": {
+        "High Cone": 0,
+        "High Cube": 0,
+        "Mid Cone": 0,
+        "Mid Cube": 0,
+        "Low Cone": 0,
+        "Low Cube": 0
+    },
+    "Autonomous": {
+        "Has Autonomous": 0,
+        "Score Gamepiece": 0,
+        "Balance Charge Station": 0
+    },
+    "Comments": ""
+}

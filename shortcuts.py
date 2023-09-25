@@ -12,4 +12,5 @@ def content():
 	ui.button("Livestream", icon="live_tv", on_click=lambda: ui.open("/livestream")).classes(tailwind)
 	ui.button("Team Statistics", icon="assessment", on_click=lambda: ui.open("/stats")).classes(tailwind)
 	ui.button("Picklist", icon="list", on_click=lambda: ui.open("/picklist")).classes(tailwind)
+	ui.button("Robot Photos", icon="collections", on_click=lambda: ui.open("/photos")).classes(tailwind)
 	ui.button("Raw Scouting Data", icon="folder", on_click=lambda: ui.open("/data")).classes(tailwind)

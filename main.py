@@ -8,6 +8,7 @@ import data_page
 import stats
 import picklist
 import pit_scouter
+import photos_page
 
 @ui.page('/')
 def mainpage():
