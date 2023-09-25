@@ -12,7 +12,8 @@ rowData = [{'rank': team.rank, 'team': team.team_key.strip('frc')} for i,team in
 
 @ui.page('/picklist')
 def picklist_content():
-	ui.query('body').style(f'background-color: #424242')
+	shortcuts.init_colors()
+
 	shortcuts.return_home()
 
 	ui.aggrid({

@@ -45,7 +45,8 @@ def update_data():
 
 @ui.page('/data')
 def data_page_content():
-	ui.query('body').style(f'background-color: #424242')
+	shortcuts.init_colors()
+
 	class Search:
 		element = None
 		tables = {}

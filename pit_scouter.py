@@ -16,7 +16,7 @@ drivebases = ["Swerve", "Mecanum", "Tank", "Other"]
 
 @ui.page('/pitscouter')
 def pitscouter_content():
-	ui.query('body').style(f'background-color: #424242')
+	shortcuts.init_colors()
 
 	class Elements:
 		game_pieces = {}
@@ -129,7 +129,7 @@ def pitscouter_content():
 
 	### AUTONOMOUS ###
 
-	with ui.card():
+	with ui.card().style("background-color: #595959"):
 		ui.label("Autonomous:").classes('font-bold')
 
 		Elements.has_autonomous = ui.switch("Has Autonoumous")

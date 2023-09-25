@@ -17,6 +17,8 @@ def Header(text):
 
 @ui.page('/scouter')
 def scouter_content():
+	shortcuts.init_colors()
+	
 	class Data:
 		round_number = 0
 		driver_station = 0

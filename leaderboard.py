@@ -4,7 +4,8 @@ from tba import *
 
 @ui.page('/leaderboard')
 def leaderboard_content():
-	ui.query('body').style(f'background-color: #424242')
+	shortcuts.init_colors()
+
 	shortcuts.return_home()
 
 	leaderboard = TBA.get_rankings()

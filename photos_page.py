@@ -13,7 +13,7 @@ def get_files():
 
 @ui.page('/photos')
 def photos_page_content():
-	ui.query('body').style(f'background-color: #424242')
+	shortcuts.init_colors()
 
 	class Search:
 		element = None
