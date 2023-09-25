@@ -147,6 +147,8 @@ def data_page_content():
 
 	Search.element = ui.input('Search',on_change=update_search)
 
+	ui.label("No Data Available").classes('text-slate-400 text-lg').set_visibility(len(data) == 0)
+
 	with ui.dialog() as dialog, ui.card():
 		ui.label('Are you sure?')
 		

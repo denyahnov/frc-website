@@ -48,6 +48,8 @@ def photos_page_content():
 
 	Search.element = ui.input('Search',on_change=update_search)
 
+	ui.label("No Photos Available").classes('text-slate-400 text-lg').set_visibility(len(data) == 0)
+
 	for file in data:
 		with ui.expansion(file, icon='description').classes('w-full') as expansion:
 			Search.tables[file] = expansion
