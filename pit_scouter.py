@@ -28,7 +28,7 @@ def pitscouter_content():
 		while True:
 			title = "{}_{}.{}".format(Elements.team_number.value, counter, event.name.split(".")[-1])
 	
-			if not os.path.isfile(os.path.join("imgs",title)):
+			if title.split(".")[0] not in os.listdir("imgs"):
 				break
 
 			counter += 1
