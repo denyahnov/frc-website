@@ -19,6 +19,7 @@ Run main.py and go to http://127.0.0.1:8080
 - Rings Scored
 - Rings Missed
 - Amp Scored
+- Trap Scored
 
 ## Teleop
 

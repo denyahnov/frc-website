@@ -9,6 +9,7 @@ import stats
 import picklist
 import pit_scouter
 import photos_page
+import schedule
 
 import img
 

@@ -13,6 +13,7 @@ if not os.path.exists("imgs"):
 all_teams = TBA.get_teams()
 
 drivebases = ["Swerve", "Mecanum", "Tank", "Other"]
+climb_time = ["N/A", "15+ secs", "15-10 secs", "10-5 secs", "5> secs"]
 
 @ui.page('/pitscouter')
 def pitscouter_content():
@@ -49,20 +50,23 @@ def pitscouter_content():
 			"Team": Elements.team_number.value,
 			"Drivebase": Elements.drivebase.value,
 			"Pickup": {
-				"Cone": {
-					element.text: int(element.value) for element in Elements.cone_pickup
-				},
-				"Cube": {
-					element.text: int(element.value) for element in Elements.cube_pickup
-				},
+				"Ground": int(Elements.ground_pickup.value),
+				"Source": int(Elements.source_pickup.value),
 			},
 			"Score": {
-				location: int(Elements.game_pieces[location].value) for location in Elements.game_pieces
+				"Speaker": int(Elements.score_speaker.value),
+				"Amp": int(Elements.score_amp.value),
+				"Trap": int(Elements.score_trap.value),
+			},
+			"Endgame": {
+				"Climb": int(Elements.climb.value),
+				"Climb Speed": int(climb_time.index(Elements.climb_time.value)),
 			},
 			"Autonomous": {
 				"Has Autonomous": int(Elements.has_autonomous.value),
 				"Score Gamepiece": int(Elements.auto_score.value),
-				"Balance Charge Station": int(Elements.auto_charge_station.value),
+				"Alliance Notes": int(Elements.alliance_notes.value),
+				"Centerline Notes": int(Elements.centerline_notes.value),
 			},
 			"Comments": Elements.comments.value,
 		}
@@ -95,46 +99,36 @@ def pitscouter_content():
 
 	### PICKUP/INTAKE LOCATIONS ###
 
-	with ui.row():
-		with ui.card().style("background-color: #595959"):
-			ui.label("Cone Pickup:").classes('font-bold')
-
-			Elements.cone_pickup = [
-				ui.switch("Upright Ground"),
-				ui.switch("Knocked Ground"),
-				ui.switch("Single Substation"),
-				ui.switch("Double Substation")
-			]
-
-		with ui.card().style("background-color: #595959"):
-			ui.label("Cube Pickup:").classes('font-bold')
-
-			Elements.cube_pickup = [
-				ui.switch("Ground"),
-				ui.switch("Single Substation"),
-				ui.switch("Double Substation")
-			]
+	with ui.card().style("background-color: #595959"):
+		ui.label("Note Pickup:").classes('font-bold')
+		
+		Elements.ground_pickup = ui.switch("Ground")
+		Elements.source_pickup = ui.switch("Source")
 
 	### SCORING LOCATIONS ###
 
 	with ui.card().style("background-color: #595959"):
 		ui.label("Scoring Locations:").classes('font-bold')
+		
+		Elements.score_speaker = ui.switch("Speaker")
+		Elements.score_amp = ui.switch("Amp")
+		Elements.score_trap = ui.switch("Trap")
 
-		with ui.grid(columns=2):
-			for location in ["High","Mid","Low"]:
-				for piece in ["Cone","Cube"]:
-					title = f"{location} {piece}"
-
-					Elements.game_pieces[title] = ui.switch(title)
+	### ENDGAME ###
+	with ui.card().style("background-color: #595959"):
+		ui.label("Endgame:").classes('font-bold')
+		Elements.climb = ui.switch("Can Climb")
+		Elements.climb_time = ui.toggle(climb_time, value=climb_time[0])
 
 	### AUTONOMOUS ###
 
 	with ui.card().style("background-color: #595959"):
 		ui.label("Autonomous:").classes('font-bold')
 
-		Elements.has_autonomous = ui.switch("Has Autonoumous")
+		Elements.has_autonomous = ui.switch("Has Autonomous")
 		Elements.auto_score = ui.switch("Score Gamepiece")
-		Elements.auto_charge_station = ui.switch("Balance Charge Station")
+		Elements.alliance_notes = ui.switch("Collect Alliance Notes")
+		Elements.centerline_notes = ui.switch("Collect Centerline Notes")
 
 	### COMMENTS ###
 

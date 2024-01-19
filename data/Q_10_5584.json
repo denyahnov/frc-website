@@ -1,0 +1,42 @@
+{
+    "Match": "Qualifier",
+    "Round": 10,
+    "Station": "Red 1",
+    "Team": 5584,
+    "Autonomous": {
+        "Has Autonomous": 1,
+        "Crossed Autonomous Line": 1,
+        "Alliance Notes": 2,
+        "Centerline Notes": 0,
+        "Scoring": {
+            "Rings Scored": 3,
+            "Rings Missed": 0,
+            "Amp Scored": 0,
+            "Trap Scored": 0
+        }
+    },
+    "Teleoperated": {
+        "Scoring": {
+            "Rings Scored": 5,
+            "Rings Missed": 1,
+            "Amp Scored": 2,
+            "Trap Scored": 0
+        },
+        "Endgame": {
+            "Trap Scored": 1,
+            "Climb": 2,
+            "Microphones": 0
+        },
+        "Extra": {
+            "Coop Pressed": 1,
+            "Subsystem Failure": 0,
+            "Complete Robot Failure": 0
+        }
+    },
+    "Comments": {
+        "Cycle Speed": 3,
+        "Driving": 4,
+        "Defence": 0,
+        "Notes": ""
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "Team": "4613",
+    "Drivebase": "Swerve",
+    "Pickup": {
+        "Ground": 1,
+        "Source": 0
+    },
+    "Score": {
+        "Speaker": 1,
+        "Amp": 1,
+        "Trap": 1
+    },
+    "Endgame": {
+        "Climb": 1,
+        "Climb Speed": 4
+    },
+    "Autonomous": {
+        "Has Autonomous": 1,
+        "Score Gamepiece": 1,
+        "Alliance Notes": 1,
+        "Centerline Notes": 1
+    },
+    "Comments": ""
+}
